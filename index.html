@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#080d14">
+  <title>ZAYN VIP — WinGo 1M Analytics</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+  <div class="shell">
+    <aside class="sidebar">
+      <div class="brand"><div class="brand-mark">Z</div><div><b>ZAYN <span>VIP</span></b><small>WIN GO ANALYTICS</small></div></div>
+      <div class="side-label">WORKSPACE</div>
+      <a class="nav active" href="#overview">▦ <span>Overview</span></a>
+      <a class="nav" href="#history">◷ <span>Live history</span></a>
+      <a class="nav" href="#analysis">⌁ <span>Statistics</span></a>
+      <a class="nav" href="#connection">⌘ <span>API connection</span></a>
+      <div class="sidebar-bottom"><div class="live-dot"></div><span>WinGo 1M feed</span><small>READ-ONLY</small></div>
+    </aside>
+
+    <main>
+      <header class="topbar">
+        <div><div class="eyebrow">REAL-TIME DATA WORKSPACE</div><h1>WinGo <span>1M</span></h1></div>
+        <div class="top-actions"><div class="status-pill" id="topStatus"><i class="status-dot"></i><span>Connecting…</span></div><button id="refreshBtn" class="refresh">↻ <span>Refresh</span></button></div>
+      </header>
+
+      <section id="overview">
+        <div class="welcome"><div><div class="eyebrow green">LIVE OVERVIEW</div><h2>Game intelligence, <em>in focus.</em></h2><p>Historical results and statistical patterns from the confirmed WinGo 1M feed.</p></div><div class="clock"><small>LOCAL TIME</small><b id="clock">--:--:--</b><span id="today">---</span></div></div>
+        <div class="metrics">
+          <article class="metric"><div class="metric-head">LATEST PERIOD <span>↗</span></div><strong class="mono" id="latestPeriod">—</strong><small>Most recent received issue</small></article>
+          <article class="metric"><div class="metric-head">LATEST RESULT <span class="green-text">● LIVE</span></div><div class="result-line"><strong id="latestNumber" class="result-ball">—</strong><span><b id="latestSize">—</b><small id="latestParity">—</small></span></div></article>
+          <article class="metric"><div class="metric-head">RECORDS LOADED <span>▤</span></div><strong id="recordCount">0</strong><small>Unique historical periods</small></article>
+          <article class="metric"><div class="metric-head">LAST API UPDATE <span>◷</span></div><strong class="small-strong" id="lastUpdate">Waiting…</strong><small id="freshness">No successful sync yet</small></article>
+        </div>
+      </section>
+
+      <section class="panel" id="analysis">
+        <div class="section-head"><div><div class="eyebrow">DATA EXPLORER</div><h3>Number distribution</h3><p>Observed frequency in the currently loaded history. Not a forecast.</p></div><div class="select-wrap"><label for="windowSelect">SAMPLE WINDOW</label><select id="windowSelect"><option value="10">Last 10</option><option value="20">Last 20</option><option value="50" selected>Last 50</option><option value="100">Last 100</option></select></div></div>
+        <div id="frequencyChart" class="frequency-chart"><div class="empty">Waiting for live history…</div></div>
+        <div class="chart-legend"><span><i class="legend-dot"></i> Observed results</span><span id="sampleLabel">0 records in sample</span></div>
+      </section>
+
+      <div class="two-col">
+        <section class="panel compact">
+          <div class="section-head"><div><div class="eyebrow">RECENT PATTERNS</div><h3>Outcome breakdown</h3></div></div>
+          <div class="breakdown" id="breakdown"><div class="empty">Waiting for data…</div></div>
+        </section>
+        <section class="panel compact">
+          <div class="section-head"><div><div class="eyebrow">NUMBER GAP</div><h3>Since last appearance</h3></div></div>
+          <div id="gaps" class="gaps"><div class="empty">Waiting for data…</div></div>
+        </section>
+      </div>
+
+      <section class="panel" id="history">
+        <div class="section-head history-head"><div><div class="eyebrow">SOURCE RECORDS</div><h3>Live result history</h3><p>Newest period first · actual API records only</p></div><div class="history-tools"><span id="historyCount">0 records</span><button class="subtle-btn" id="loadMore">Load more</button></div></div>
+        <div class="table-wrap"><table><thead><tr><th>PERIOD NUMBER</th><th>RESULT</th><th>COLOUR</th><th>BIG / SMALL</th><th>ODD / EVEN</th><th>SUM</th></tr></thead><tbody id="historyBody"><tr><td colspan="6" class="empty">Connecting to API…</td></tr></tbody></table></div>
+        <div class="table-foot"><span id="tableStatus">Awaiting first API response</span><span>Auto refresh · 10 seconds</span></div>
+      </section>
+
+      <section class="panel connection" id="connection">
+        <div class="section-head"><div><div class="eyebrow">SYSTEM HEALTH</div><h3>API connection</h3><p>Primary source: confirmed WinGo 1M history endpoint</p></div><div id="connectionBadge" class="status-pill"><i class="status-dot"></i><span>Connecting</span></div></div>
+        <div class="endpoint"><span>GET</span><code>https://draw.ar-lottery01.com/WinGo/WinGo_1M/GetHistoryIssuePage.json</code><button id="copyEndpoint" title="Copy API endpoint">▣</button></div>
+        <div class="connection-grid"><div><small>CONNECTION</small><b id="connectionState">Checking…</b></div><div><small>LAST SUCCESSFUL UPDATE</small><b id="connectionUpdate">—</b></div><div><small>LATEST RECEIVED PERIOD</small><b id="connectionPeriod">—</b></div><div><small>API MESSAGE</small><b id="apiMessage">—</b></div></div>
+        <div id="errorBox" class="error-box" hidden></div>
+      </section>
+      <footer><span>© 2026 ZAYN VIP · WIN GO 1M ANALYTICS</span><span>Historical statistics only · No outcome guarantees</span></footer>
+    </main>
+  </div>
+  <script src="/app.js"></script>
+</body></html>
